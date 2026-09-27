@@ -24,7 +24,7 @@ export const FormSelectNativeCVA = cva('w-full min-w-0 appearance-none rounded-l
 export function FormSelectNative({ className, render, size = 'md', ...property }: Component.FormSelectNative): JSX.Element {
 	const Select = useRender({ defaultTagName : 'select', props : mergeProps<'select'>({ className : FormSelectNativeCVA({ size }) }, property), render : render, state : { size : size, slot : 'select-native' } })
 
-	return useRender({ defaultTagName : 'div', props : { children : <>{Select}<ChevronDownIcon data-slot={'select-native-icon'} aria-hidden={'true'} className={'pointer-events-none absolute inset-e-2.5 top-1/2 size-4 -translate-y-1/2 text-mute-foreground select-none'} /></>, className : cn('group/select-native relative w-fit has-[select:disabled]:opacity-50', className) }, state : { size : size, slot : 'select-native-shell' } })
+	return useRender({ defaultTagName : 'div', props : { children : <>{Select}<ChevronDownIcon data-slot={'select-native-icon'} aria-hidden={'true'} className={'pointer-events-none absolute inset-e-2.5 top-1/2 size-4 -translate-y-1/2 text-mute-foreground select-none'} /></>, className : cn('group/select-native relative w-fit in-data-[slot=field]:w-full has-[select:disabled]:opacity-50', className) }, state : { size : size, slot : 'select-native-shell' } })
 }
 
 export function FormSelectNativeOption({ className, render, ...property }: Component.FormSelectNativeOption): JSX.Element {
