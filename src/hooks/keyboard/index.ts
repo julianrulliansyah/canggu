@@ -1,10 +1,10 @@
 'use client'
 
-import type * as Component from '@/utilities/keyboard/types'
+import type * as Component from '@/hooks/keyboard/types'
 
 import { useEffect, useRef } from 'react'
 
-export function useKeyboard({ key, hold, onAction }: Component.UtilitiesKeyboard): void {
+export function useKeyboard({ key, hold, onAction }: Component.HooksKeyboard): void {
 	const ref = { action : useRef(onAction) }
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ export function useKeyboard({ key, hold, onAction }: Component.UtilitiesKeyboard
 	useEffect(() => {
 		const perform = {
 			down : (event: KeyboardEvent): void => {
-				if (!(event.key === key) || !(hold === 'meta' ? event.metaKey : event.ctrlKey))
+				if (!(event.key === key) || !(hold === 'meta' || (hold === 'command' && /Mac|iPhone|iPad/.test(navigator.userAgent)) ? event.metaKey : event.ctrlKey))
 					return
 
 				event.preventDefault()

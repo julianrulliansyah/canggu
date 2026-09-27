@@ -7,7 +7,7 @@ export const config: UserConfig = {
 	checks   : { moduleLevelDirective : false },
 	clean    : true,
 	dts      : true,
-	entry    : [ 'src/index.ts', 'src/components/**/index.tsx', 'src/composites/**/index.tsx', 'src/utilities/*/index.ts', 'src/scripts/index.ts' ],
+	entry    : [ 'src/index.ts', 'src/components/**/index.tsx', 'src/composites/**/index.tsx', 'src/hooks/*/index.ts', 'src/utilities/*/index.ts', 'src/scripts/index.ts' ],
 	platform : 'neutral',
 	unbundle : true,
 	hooks    : {

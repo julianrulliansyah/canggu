@@ -89,6 +89,10 @@
 			"import": "./dist/composites/*/index.js"
 		},
 		"./font.css": "./dist/font.css",
+		"./hooks/*": {
+			"types": "./dist/hooks/*/index.d.ts",
+			"import": "./dist/hooks/*/index.js"
+		},
 		"./styles.css": "./dist/styles.css",
 		"./utilities/*": {
 			"types": "./dist/utilities/*/index.d.ts",

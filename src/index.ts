@@ -56,6 +56,7 @@ export * from '@/composites/message/scroll'
 export * from '@/composites/sidebar'
 export * from '@/composites/step'
 
+export * from '@/hooks/keyboard'
+export * from '@/hooks/responsive'
+
 export * from '@/utilities/class'
-export * from '@/utilities/keyboard'
-export * from '@/utilities/responsive'
