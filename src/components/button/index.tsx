@@ -1,6 +1,8 @@
 import type { JSX }        from 'react'
 import type * as Component from '@/components/button/types'
 
+import { isValidElement } from 'react'
+
 import { Button as ButtonPrimitive } from '@base-ui/react'
 import { cva }                       from 'class-variance-authority'
 
@@ -94,6 +96,6 @@ export const ButtonCVA = cva('group/button inline-flex shrink-0 items-center jus
 	],
 })
 
-export function Button({ className, icon = false, round = 'lg', size = 'md', variant = 'primary', ...property }: Component.Button): JSX.Element {
-	return <ButtonPrimitive data-slot={'button'} data-variant={variant} className={cn(ButtonCVA({ className, icon, round, size, variant }))} {...property} />
+export function Button({ className, icon = false, render, nativeButton = render === undefined || typeof render === 'function' || (isValidElement(render) && render.type === 'button'), round = 'lg', size = 'md', variant = 'primary', ...property }: Component.Button): JSX.Element {
+	return <ButtonPrimitive data-slot={'button'} data-variant={variant} className={cn(ButtonCVA({ className, icon, round, size, variant }))} render={render} nativeButton={nativeButton} {...property} />
 }
