@@ -11,7 +11,7 @@ import { FormInput }    from '@/components/form/input'
 import { FormTextarea } from '@/components/form/textarea'
 import { cn }           from '@/utilities/class'
 
-export const FormInputGroupAddonCVA = cva('flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-mute-foreground select-none group-has-[[data-slot=input-group-control]:disabled]/input-group:cursor-not-allowed [&>kbd]:rounded-[calc(var(--canggu-radius)-0.3125rem)] [&>svg:not([class*="size-"])]:size-4', {
+export const FormInputGroupAddonCVA = cva('flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm text-mute-foreground select-none group-has-[[data-slot=input-group-control]:disabled]/input-group:cursor-not-allowed [&>kbd]:rounded-[calc(var(--canggu-radius)-0.3125rem)] [&>svg:not([class*="size-"])]:size-4', {
 	variants : {
 		axis : {
 			block  : 'w-full justify-start px-2.5',
