@@ -32,5 +32,5 @@ export function CardContent({ className, render, ...property }: Component.CardCo
 }
 
 export function CardFooter({ className, render, ...property }: Component.CardFooter): JSX.Element {
-	return useRender({ defaultTagName : 'div', props : mergeProps<'div'>({ className : cn('flex items-center rounded-b-xl border-t bg-mute/65 p-(--card-spacing) dark:bg-neutral-950/50', className) }, property), render : render, state : { slot : 'card-footer' } })
+	return useRender({ defaultTagName : 'div', props : mergeProps<'div'>({ className : cn('mt-auto flex items-center rounded-b-xl border-t bg-mute/65 p-(--card-spacing) dark:bg-neutral-950/50', className) }, property), render : render, state : { slot : 'card-footer' } })
 }
