@@ -1,8 +1,10 @@
 import type { useRender }                                                                                                                               from '@base-ui/react'
+import type { VariantProps }                                                                                                                            from 'class-variance-authority'
 import type { ComponentType, ReactNode }                                                                                                                from 'react'
 import type { DefaultLegendContentProps, LegendPayload, LegendProps, ResponsiveContainerProps, TooltipContentProps, TooltipPayloadEntry, TooltipProps } from 'recharts'
+import type { ChartCVA }                                                                                                                                from '@/components/chart'
 
-export type Chart               = Readonly<useRender.ComponentProps<'div'>> & Readonly<{ children : ResponsiveContainerProps['children'], config : ChartConfig, dimension? : ChartDimension }>
+export type Chart               = Readonly<useRender.ComponentProps<'div'>> & VariantProps<typeof ChartCVA> & Readonly<{ children : ResponsiveContainerProps['children'], config : ChartConfig, dimension? : ChartDimension }>
 export type ChartConfig         = Readonly<Record<string, ChartSeries>>
 export type ChartSeries         = Readonly<{ icon? : ComponentType, label? : ReactNode } & ({ color? : string, theme? : never } | { color? : never, theme : ChartTheme })>
 export type ChartTheme          = Readonly<{ dark : string, light : string }>

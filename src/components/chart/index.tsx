@@ -7,10 +7,24 @@ import type * as Component          from '@/components/chart/types'
 import { createContext, use } from 'react'
 
 import { mergeProps, useRender }                from '@base-ui/react'
+import { cva }                                  from 'class-variance-authority'
 import { Legend, ResponsiveContainer, Tooltip } from 'recharts'
 
 import { locate, palette } from '@/components/chart/utilities'
 import { cn }              from '@/utilities/class'
+
+export const ChartCVA = cva('flex justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-mute-foreground [&_.recharts-cartesian-grid_line[stroke="#ccc"]]:stroke-edge/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-edge [&_.recharts-dot[stroke="#fff"]]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke="#ccc"]]:stroke-edge [&_.recharts-radial-bar-background-sector]:fill-mute [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-mute [&_.recharts-reference-line_[stroke="#ccc"]]:stroke-edge [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke="#fff"]]:stroke-transparent [&_.recharts-surface]:outline-hidden', {
+	variants : {
+		ratio : {
+			'auto' : 'size-full',
+			'1:1'  : 'aspect-square',
+			'16:9' : 'aspect-video',
+		},
+	},
+	defaultVariants : {
+		ratio : '16:9',
+	},
+})
 
 const ChartContext = createContext<Component.ChartValue | null>(null)
 
@@ -23,10 +37,10 @@ export function useChart(): Component.ChartValue {
 	return context
 }
 
-export function Chart({ children, className, config, dimension = { height : 200, width : 320 }, render, style, ...property }: Component.Chart): JSX.Element {
+export function Chart({ children, className, config, dimension = { height : 200, width : 320 }, ratio = '16:9', render, style, ...property }: Component.Chart): JSX.Element {
 	return (
 		<ChartContext value={{ config : config }}>
-			{useRender({ defaultTagName : 'div', props : mergeProps<'div'>({ children : <ResponsiveContainer initialDimension={dimension}>{children}</ResponsiveContainer>, className : cn('flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-mute-foreground [&_.recharts-cartesian-grid_line[stroke="#ccc"]]:stroke-edge/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-edge [&_.recharts-dot[stroke="#fff"]]:stroke-transparent [&_.recharts-layer]:outline-hidden [&_.recharts-polar-grid_[stroke="#ccc"]]:stroke-edge [&_.recharts-radial-bar-background-sector]:fill-mute [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-mute [&_.recharts-reference-line_[stroke="#ccc"]]:stroke-edge [&_.recharts-sector]:outline-hidden [&_.recharts-sector[stroke="#fff"]]:stroke-transparent [&_.recharts-surface]:outline-hidden', className), style : { ...palette(config), ...style } }, property), render : render, state : { slot : 'chart' } })}
+			{useRender({ defaultTagName : 'div', props : mergeProps<'div'>({ children : <ResponsiveContainer initialDimension={dimension}>{children}</ResponsiveContainer>, className : cn(ChartCVA({ className, ratio })), style : { ...palette(config), ...style } }, property), render : render, state : { ratio : ratio ?? '16:9', slot : 'chart' } })}
 		</ChartContext>
 	)
 }
