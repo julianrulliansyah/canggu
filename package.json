@@ -1,0 +1,105 @@
+{
+	"name": "canggu",
+	"type": "module",
+	"version": "1.1.5",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/julianrulliansyah/canggu.git"
+	},
+	"files": [
+		"dist",
+		"src"
+	],
+	"bin": {
+		"canggu": "dist/scripts/index.js"
+	},
+	"scripts": {
+		"build": "tsdown",
+		"lint": "eslint ."
+	},
+	"dependencies": {
+		"@base-ui/react": "^1",
+		"class-variance-authority": "^0",
+		"cn": "^0",
+		"lucide-react": "^1",
+		"tw-animate-css": "^1"
+	},
+	"devDependencies": {
+		"@fontsource-variable/geist": "^5",
+		"@fontsource-variable/inter": "^5",
+		"@types/bun": "^1",
+		"@types/react": "^19",
+		"date-fns": "^4",
+		"embla-carousel": "^8",
+		"embla-carousel-react": "^8",
+		"eslint": "^10",
+		"eslint-immersive": "^7",
+		"react-day-picker": "^10",
+		"react-resizable-panels": "^4",
+		"recharts": "^3",
+		"sequential": "^7",
+		"tsdown": "^0",
+		"typescript": "^6"
+	},
+	"peerDependencies": {
+		"react": ">=19",
+		"tailwindcss": ">=4",
+		"date-fns": "^4",
+		"embla-carousel": "^8",
+		"embla-carousel-react": "^8",
+		"react-day-picker": "^10",
+		"react-resizable-panels": "^4",
+		"recharts": "^3"
+	},
+	"peerDependenciesMeta": {
+		"date-fns": {
+			"optional": true
+		},
+		"embla-carousel": {
+			"optional": true
+		},
+		"embla-carousel-react": {
+			"optional": true
+		},
+		"react-day-picker": {
+			"optional": true
+		},
+		"react-resizable-panels": {
+			"optional": true
+		},
+		"recharts": {
+			"optional": true
+		}
+	},
+	"imports": {
+		"#/*": "./src/*"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./components/*": {
+			"types": "./dist/components/*/index.d.ts",
+			"import": "./dist/components/*/index.js"
+		},
+		"./composites/*": {
+			"types": "./dist/composites/*/index.d.ts",
+			"import": "./dist/composites/*/index.js"
+		},
+		"./font.css": "./dist/font.css",
+		"./styles.css": "./dist/styles.css",
+		"./utilities/*": {
+			"types": "./dist/utilities/*/index.d.ts",
+			"import": "./dist/utilities/*/index.js"
+		}
+	},
+	"sideEffects": [
+		"*.css"
+	],
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	}
+}

@@ -1,0 +1,107 @@
+@import '#/assets/styles/font/index.css';
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@import '#/assets/styles/libraries/keyframe.min.css';
+@import '#/assets/styles/libraries/variant.min.css';
+@import '#/assets/styles/libraries/utility.min.css';
+
+@import '#/assets/styles/theme/berawa/index.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans    : var(--canggu-typeface-body);
+    --font-heading : var(--canggu-typeface-heading);
+    --font-body    : var(--canggu-typeface-body);
+
+    --text-xs   : calc(var(--canggu-typeface-size) * 0.75);
+    --text-sm   : calc(var(--canggu-typeface-size) * 0.875);
+    --text-base : var(--canggu-typeface-size);
+    --text-lg   : calc(var(--canggu-typeface-size) * 1.125);
+    --text-xl   : calc(var(--canggu-typeface-size) * 1.25);
+    --text-2xl  : calc(var(--canggu-typeface-size) * 1.5);
+    --text-3xl  : calc(var(--canggu-typeface-size) * 1.875);
+    --text-4xl  : calc(var(--canggu-typeface-size) * 2.25);
+    --text-5xl  : calc(var(--canggu-typeface-size) * 3);
+    --text-6xl  : calc(var(--canggu-typeface-size) * 3.75);
+    --text-7xl  : calc(var(--canggu-typeface-size) * 4.5);
+    --text-8xl  : calc(var(--canggu-typeface-size) * 6);
+    --text-9xl  : calc(var(--canggu-typeface-size) * 8);
+
+    --color-background                 : var(--canggu-color-background);
+    --color-foreground                 : var(--canggu-color-foreground);
+    --color-card                       : var(--canggu-color-card);
+    --color-card-foreground            : var(--canggu-color-card-foreground);
+    --color-popover                    : var(--canggu-color-popover);
+    --color-popover-foreground         : var(--canggu-color-popover-foreground);
+    --color-primary                    : var(--canggu-color-primary);
+    --color-primary-foreground         : var(--canggu-color-primary-foreground);
+    --color-secondary                  : var(--canggu-color-secondary);
+    --color-secondary-foreground       : var(--canggu-color-secondary-foreground);
+    --color-mute                       : var(--canggu-color-mute);
+    --color-mute-foreground            : var(--canggu-color-mute-foreground);
+    --color-accent                     : var(--canggu-color-accent);
+    --color-accent-foreground          : var(--canggu-color-accent-foreground);
+    --color-destructive                : var(--canggu-color-destructive);
+    --color-halo                       : var(--canggu-color-halo);
+    --color-edge                       : var(--canggu-color-edge);
+    --color-haze                       : var(--canggu-color-haze);
+    --color-chart-primary              : var(--canggu-color-chart-primary);
+    --color-chart-secondary            : var(--canggu-color-chart-secondary);
+    --color-chart-tertiary             : var(--canggu-color-chart-tertiary);
+    --color-chart-quaternary           : var(--canggu-color-chart-quaternary);
+    --color-chart-quinary              : var(--canggu-color-chart-quinary);
+    --color-sidebar                    : var(--canggu-color-sidebar);
+    --color-sidebar-foreground         : var(--canggu-color-sidebar-foreground);
+    --color-sidebar-primary            : var(--canggu-color-sidebar-primary);
+    --color-sidebar-primary-foreground : var(--canggu-color-sidebar-primary-foreground);
+    --color-sidebar-accent             : var(--canggu-color-sidebar-accent);
+    --color-sidebar-accent-foreground  : var(--canggu-color-sidebar-accent-foreground);
+    --color-sidebar-edge               : var(--canggu-color-sidebar-edge);
+    --color-sidebar-halo               : var(--canggu-color-sidebar-halo);
+
+    --radius-xs  : calc(var(--canggu-radius) * 0.4);
+    --radius-sm  : calc(var(--canggu-radius) * 0.6);
+    --radius-md  : calc(var(--canggu-radius) * 0.8);
+    --radius-lg  : var(--canggu-radius);
+    --radius-xl  : calc(var(--canggu-radius) * 1.4);
+    --radius-2xl : calc(var(--canggu-radius) * 1.8);
+    --radius-3xl : calc(var(--canggu-radius) * 2.2);
+    --radius-4xl : calc(var(--canggu-radius) * 2.6);
+
+    --spacing-control-lg       : var(--canggu-spacing-control-lg);
+    --spacing-control-md       : var(--canggu-spacing-control-md);
+    --spacing-control-sm       : var(--canggu-spacing-control-sm);
+    --spacing-control-xs       : var(--canggu-spacing-control-xs);
+    --spacing-check            : var(--canggu-spacing-check);
+    --spacing-thumb            : var(--canggu-spacing-thumb);
+    --spacing-switch-height-md : var(--canggu-spacing-switch-height-md);
+    --spacing-switch-width-md  : var(--canggu-spacing-switch-width-md);
+    --spacing-switch-height-sm : var(--canggu-spacing-switch-height-sm);
+    --spacing-switch-width-sm  : var(--canggu-spacing-switch-width-sm);
+    --spacing-textarea         : var(--canggu-spacing-textarea);
+}
+
+@layer base {
+	:root {
+		color-scheme : light;
+	}
+
+	.dark {
+		color-scheme : dark;
+	}
+
+	* {
+		@apply border-edge outline-halo/50;
+	}
+	
+	body {
+		@apply bg-background text-foreground;
+	}
+	
+	html {
+		@apply font-sans;
+    }
+}

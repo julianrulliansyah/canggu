@@ -1,0 +1,67 @@
+@layer theme {
+    :where(:root, [data-theme=berawa]) {
+        --canggu-color-background                 : light-dark(oklch(1.000 0.000   0.000), oklch(0.140 0.005 285.825));
+        --canggu-color-foreground                 : light-dark(oklch(0.140 0.005 285.825), oklch(0.985 0.000   0.000));
+        --canggu-color-card                       : light-dark(oklch(1.000 0.000   0.000), oklch(0.210 0.005 285.885));
+        --canggu-color-card-foreground            : light-dark(oklch(0.140 0.005 285.825), oklch(0.985 0.000   0.000));
+        --canggu-color-popover                    : light-dark(oklch(1.000 0.000   0.000), oklch(0.210 0.005 285.885));
+        --canggu-color-popover-foreground         : light-dark(oklch(0.140 0.005 285.825), oklch(0.985 0.000   0.000));
+        --canggu-color-primary                    : light-dark(oklch(0.210 0.005 285.885), oklch(0.925 0.005 286.325));
+        --canggu-color-primary-foreground         : light-dark(oklch(0.985 0.000   0.000), oklch(0.215 0.005 285.885));
+        --canggu-color-secondary                  : light-dark(oklch(0.965 0.000 286.375), oklch(0.275 0.005 286.035));
+        --canggu-color-secondary-foreground       : light-dark(oklch(0.210 0.005 285.885), oklch(0.985 0.000   0.000));
+        --canggu-color-mute                       : light-dark(oklch(0.965 0.000 286.375), oklch(0.275 0.005 286.035));
+        --canggu-color-mute-foreground            : light-dark(oklch(0.550 0.015 285.940), oklch(0.705 0.015 286.065));
+        --canggu-color-accent                     : light-dark(oklch(0.965 0.000 286.375), oklch(0.275 0.005 286.035));
+        --canggu-color-accent-foreground          : light-dark(oklch(0.210 0.005 285.885), oklch(0.985 0.000   0.000));
+        --canggu-color-destructive                : light-dark(oklch(0.575 0.245  27.325), oklch(0.705 0.190  22.215));
+        --canggu-color-halo                       : light-dark(oklch(0.705 0.015 286.065), oklch(0.550 0.015 285.940));
+        --canggu-color-edge                       : light-dark(oklch(0.920 0.005 286.320), oklch(1.000 0.000   0.000 / 10%));
+        --canggu-color-haze                       : light-dark(oklch(0.920 0.005 286.320), oklch(1.000 0.000   0.000 / 15%));
+        --canggu-color-chart-primary              : light-dark(oklch(0.871 0.006 286.286), oklch(0.871 0.006 286.286));
+        --canggu-color-chart-secondary            : light-dark(oklch(0.552 0.016 285.938), oklch(0.552 0.016 285.938));
+        --canggu-color-chart-tertiary             : light-dark(oklch(0.442 0.017 285.786), oklch(0.442 0.017 285.786));
+        --canggu-color-chart-quaternary           : light-dark(oklch(0.370 0.013 285.805), oklch(0.370 0.013 285.805));
+        --canggu-color-chart-quinary              : light-dark(oklch(0.274 0.006 286.033), oklch(0.274 0.006 286.033));
+        --canggu-color-sidebar                    : light-dark(oklch(0.985 0.000   0.000), oklch(0.210 0.005 285.885));
+        --canggu-color-sidebar-foreground         : light-dark(oklch(0.140 0.005 285.825), oklch(0.985 0.000   0.000));
+        --canggu-color-sidebar-primary            : light-dark(oklch(0.210 0.005 285.885), oklch(0.488 0.243 264.376));
+        --canggu-color-sidebar-primary-foreground : light-dark(oklch(0.985 0.000   0.000), oklch(0.985 0.000   0.000));
+        --canggu-color-sidebar-accent             : light-dark(oklch(0.965 0.000 286.375), oklch(0.275 0.005 286.035));
+        --canggu-color-sidebar-accent-foreground  : light-dark(oklch(0.210 0.005 285.885), oklch(0.985 0.000   0.000));
+        --canggu-color-sidebar-edge               : light-dark(oklch(0.920 0.005 286.320), oklch(1.000 0.000   0.000 / 10%));
+        --canggu-color-sidebar-halo               : light-dark(oklch(0.705 0.015 286.065), oklch(0.550 0.015 285.940));
+
+        --canggu-radius : 0.625rem;
+
+        --canggu-typeface-body    : 'Inter Variable', sans-serif;
+        --canggu-typeface-heading : 'Geist Variable', sans-serif;
+        --canggu-typeface-size    : 1rem;
+
+        --canggu-spacing-control-lg       : 2.375rem;
+        --canggu-spacing-control-md       : 2.25rem;
+        --canggu-spacing-control-sm       : 2rem;
+        --canggu-spacing-control-xs       : 1.75rem;
+        --canggu-spacing-check            : 1.125rem;
+        --canggu-spacing-thumb            : 0.875rem;
+        --canggu-spacing-switch-height-md : 1.275rem;
+        --canggu-spacing-switch-width-md  : 2.25rem;
+        --canggu-spacing-switch-height-sm : 1rem;
+        --canggu-spacing-switch-width-sm  : 1.75rem;
+        --canggu-spacing-textarea         : 5rem;
+
+        @media (width >= 48rem) {
+            --canggu-spacing-control-lg       : 2.125rem;
+            --canggu-spacing-control-md       : 2.0625rem;
+            --canggu-spacing-control-sm       : 1.875rem;
+            --canggu-spacing-control-xs       : 1.6875rem;
+            --canggu-spacing-check            : 1rem;
+            --canggu-spacing-thumb            : 0.75rem;
+            --canggu-spacing-switch-height-md : 1.15rem;
+            --canggu-spacing-switch-width-md  : 2rem;
+            --canggu-spacing-switch-height-sm : 0.875rem;
+            --canggu-spacing-switch-width-sm  : 1.5rem;
+            --canggu-spacing-textarea         : 4rem;
+        }
+    }
+}

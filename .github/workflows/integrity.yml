@@ -1,0 +1,19 @@
+name: '@canggu/integrity'
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run lint --max-warnings=0
+      - run: bunx tsc --noEmit
+      - run: bun test
+      - run: bun run build

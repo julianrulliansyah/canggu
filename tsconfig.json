@@ -1,0 +1,32 @@
+{
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"lib": [
+			"DOM",
+			"ESNext"
+		],
+		"module": "preserve",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"noUncheckedIndexedAccess": true,
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		},
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": [
+			"bun"
+		],
+		"verbatimModuleSyntax": true
+	},
+	"include": [
+		"src",
+		"test",
+		"eslint.config.ts",
+		"tsdown.config.ts",
+		"release.config.ts",
+	]
+}
