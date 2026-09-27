@@ -6,9 +6,9 @@ import { dirname, join }                                                        
 import { createInterface }                                                           from 'node:readline/promises'
 import { fileURLToPath }                                                             from 'node:url'
 
-const kind     : Script.CommandKind[] = [ 'components', 'composites', 'utilities' ]
+const kind     : Script.CommandKind[] = [ 'components', 'composites', 'hooks', 'utilities' ]
 const root     : Script.Command       = stamp(join(dirname(fileURLToPath(import.meta.url)), '..', '..'))
-const fallback : Script.CommandConfig = { alias : { components : '@/canggu/components', composites : '@/canggu/composites', utilities : '@/canggu/utilities' }, directory : { components : 'src/canggu/components', composites : 'src/canggu/composites', style : 'src/canggu/styles', utilities : 'src/canggu/utilities' } }
+const fallback : Script.CommandConfig = { alias : { components : '@/canggu/components', composites : '@/canggu/composites', hooks : '@/canggu/hooks', utilities : '@/canggu/utilities' }, directory : { components : 'src/canggu/components', composites : 'src/canggu/composites', hooks : 'src/canggu/hooks', style : 'src/canggu/styles', utilities : 'src/canggu/utilities' } }
 
 function stamp(path: string): Script.Command {
 	return path as Script.Command
@@ -172,6 +172,7 @@ async function add(selection: string[], force: boolean): Promise<void> {
 function list(): void {
 	console.log('Components' + ':' + ' ' + component('components').join(', '))
 	console.log('Composites' + ':' + ' ' + component('composites').join(', '))
+	console.log('Hooks' + ':' + ' ' + component('hooks').join(', '))
 	console.log('Utilities' + ':' + ' ' + component('utilities').join(', '))
 }
 
@@ -179,7 +180,7 @@ async function install(quiet: boolean): Promise<void> {
 	const line = quiet ? null : createInterface({ input : process.stdin, output : process.stdout })
 	const ask  = async (question: string, value: string): Promise<string> => line === null ? value : (await line.question(question + ' ' + '(' + value + ')' + ' ')).trim() || value
 
-	const choice: Script.CommandConfig = { alias : { components : await ask('Alias of components', fallback.alias.components), composites : await ask('Alias of composites', fallback.alias.composites), utilities : await ask('Alias of utilities', fallback.alias.utilities) }, directory : { components : await ask('Directory of components', fallback.directory.components), composites : await ask('Directory of composites', fallback.directory.composites), style : await ask('Directory of the stylesheet', fallback.directory.style), utilities : await ask('Directory of utilities', fallback.directory.utilities) } }
+	const choice: Script.CommandConfig = { alias : { components : await ask('Alias of components', fallback.alias.components), composites : await ask('Alias of composites', fallback.alias.composites), hooks : await ask('Alias of hooks', fallback.alias.hooks), utilities : await ask('Alias of utilities', fallback.alias.utilities) }, directory : { components : await ask('Directory of components', fallback.directory.components), composites : await ask('Directory of composites', fallback.directory.composites), hooks : await ask('Directory of hooks', fallback.directory.hooks), style : await ask('Directory of the stylesheet', fallback.directory.style), utilities : await ask('Directory of utilities', fallback.directory.utilities) } }
 
 	line?.close()
 	writeFileSync('canggu.json', JSON.stringify(choice, null, '\t') + '\n')
