@@ -16,9 +16,9 @@ import { Keyboard, KeyboardGroup }                                              
 import { Separator }                                                                                  from '@/components/separator'
 import { Skeleton }                                                                                   from '@/components/skeleton'
 import { Tooltip, TooltipPopup, TooltipProvider, TooltipTrigger }                                     from '@/components/tooltip'
+import { useKeyboard }                                                                                from '@/hooks/keyboard'
+import { useSmall }                                                                                   from '@/hooks/responsive'
 import { cn }                                                                                         from '@/utilities/class'
-import { useKeyboard }                                                                                from '@/utilities/keyboard'
-import { useSmall }                                                                                   from '@/utilities/responsive'
 
 export const cookie    = { age : 60 * 60 * 24 * 7, name : 'sidebar(state)' }
 export const provision = { icon : '3rem', large : '16rem', small : '18rem' }
@@ -121,8 +121,7 @@ export function SidebarProvider({ children, className, defaultOpen = true, onOpe
 		},
 	}
 
-	useKeyboard({ key : '/', hold : 'meta', onAction : perform.toggle })
-	useKeyboard({ key : '/', hold : 'ctrl', onAction : perform.toggle })
+	useKeyboard({ key : '/', hold : 'command', onAction : perform.toggle })
 
 	return (
 		<SidebarContext value={{ mobile : { open : state.mobile[0], set : state.mobile[1] }, open : open ?? state.open[0], set : perform.set, toggle : perform.toggle, touch : touch }}>
