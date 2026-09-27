@@ -19,8 +19,8 @@ export const FormSelectTriggerCVA = cva('flex w-fit items-center justify-between
 	},
 })
 
-export function FormSelect(property: Component.FormSelect): JSX.Element {
-	return <Select.Root {...property} />
+export function FormSelect<Value, Multiple extends boolean | undefined = false>(property: Component.FormSelect<Value, Multiple>): JSX.Element {
+	return <Select.Root<Value, Multiple> {...property} />
 }
 
 export function FormSelectTrigger({ children, className, size = 'md', ...property }: Component.FormSelectTrigger): JSX.Element {

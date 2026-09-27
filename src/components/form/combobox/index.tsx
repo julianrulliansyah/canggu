@@ -8,8 +8,8 @@ import { Button }                                                               
 import { FormInputGroup, FormInputGroupAddon, FormInputGroupButton, FormInputGroupControl } from '@/components/form/input/group'
 import { cn }                                                                               from '@/utilities/class'
 
-export function FormCombobox(property: Component.FormCombobox): JSX.Element {
-	return <Combobox.Root {...property} />
+export function FormCombobox<Value, Multiple extends boolean | undefined = false>(property: Component.FormCombobox<Value, Multiple>): JSX.Element {
+	return <Combobox.Root<Value, Multiple> {...property} />
 }
 
 export function FormComboboxValue(property: Component.FormComboboxValue): JSX.Element {
