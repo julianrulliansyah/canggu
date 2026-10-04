@@ -1,3 +1,28 @@
+## [1.1.7](https://github.com/julianrulliansyah/canggu/compare/v1.1.6...v1.1.7) (2026-10-04)
+
+### Refinements
+
+* **assets/styles/theme/berawa:** declare rail placement and express shadows in oklch ([b0317ab](https://github.com/julianrulliansyah/canggu/commit/b0317ab84a8c5e73581d94d85218cf1d5b8b5b9d))
+* **assets/styles/theme/berawa:** values declaration reproducing present sidebar ([843f00d](https://github.com/julianrulliansyah/canggu/commit/843f00dbd0ca20b3eb6225652b9c01975e095da4))
+* **assets/styles/theme/echo:** introduce theme with offset inset and submenu connectors ([7d783ec](https://github.com/julianrulliansyah/canggu/commit/7d783ecd34f466c7b3282147f774dfd0e265d8e2))
+* **assets/styles/theme/echo:** place rail within seam and conform icon sizes to berawa theme ([6adce37](https://github.com/julianrulliansyah/canggu/commit/6adce37dff350d956250f942dab9f84e7d65dd94))
+* **assets/styles:** express shape of sidebar as tokens declared by berawa and echo ([7217d00](https://github.com/julianrulliansyah/canggu/commit/7217d006dd4145212f7f2a49450ed5dcdbf284fc))
+* **assets/styles:** map rail placement tokens and withdraw icon dimensions of sidebar ([8491848](https://github.com/julianrulliansyah/canggu/commit/84918489236574314111b80d266819d140fa4fa8))
+* **assets/styles:** register sidebar length tokens and withdraw spacing maps of rail position ([7a4e1f0](https://github.com/julianrulliansyah/canggu/commit/7a4e1f05e7f15613ca2a2034297e36cc557b6eb6))
+* **codebase:** emit every theme absent from stylesheet as separate export entry ([a243bab](https://github.com/julianrulliansyah/canggu/commit/a243bab1b702003a0ee6b8473bc29b2fbda30528))
+* **components/separator:** draw line with border to preserve clarity on fractional pixel ratios ([8eef769](https://github.com/julianrulliansyah/canggu/commit/8eef7699d1c931a64d76543a2ca3700cfdf910f4))
+* **composites/sidebar:** confine hover to inactive items and situate rail by tokens ([5208350](https://github.com/julianrulliansyah/canggu/commit/520835075430b24233c521bfbd88b5f4a0f752c8))
+* **composites/sidebar:** honour reduced motion and read rail position tokens directly ([1f6bfc2](https://github.com/julianrulliansyah/canggu/commit/1f6bfc2f830c232d6b4fa405f1037fe53c16a6e0))
+* **composites/sidebar:** read theme tokens for shape and hold active state above hover ([36ec992](https://github.com/julianrulliansyah/canggu/commit/36ec992eee189dcd01c8bda29d475cfaa4384d15))
+* **hooks/theme:** furnish typed hook observing and applying document theme attribute ([ea94560](https://github.com/julianrulliansyah/canggu/commit/ea94560ec9163464b40b68b0c26cdbc6a0a4f8bd))
+* **scripts:** replicate every theme upon installation and adopt module classification ([35a84f7](https://github.com/julianrulliansyah/canggu/commit/35a84f7ff10784c91358f08233741de321dd96ae))
+* **utilities/theme:** expose union of theme names for typed data-theme attribute ([ef73c06](https://github.com/julianrulliansyah/canggu/commit/ef73c06bb4c3a5203d0dc2f874c20cc9389f7a17))
+
+### Refactors
+
+* **assets/styles/theme/berawa:** consign rail displacement values to position namespace ([b469c55](https://github.com/julianrulliansyah/canggu/commit/b469c55fb1673b81fe8a94b363a8a12e0126246f))
+* **assets/styles/theme/echo:** relocate rail placement tokens into dedicated position namespace ([aeaf96f](https://github.com/julianrulliansyah/canggu/commit/aeaf96ff3792684326ec7b7c1fd75693b7e0311a))
+
 ## [1.1.6](https://github.com/julianrulliansyah/canggu/compare/v1.1.5...v1.1.6) (2026-09-27)
 
 ### Resolutions
