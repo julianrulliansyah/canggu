@@ -58,6 +58,7 @@ export * from '@/composites/step'
 
 export * from '@/hooks/keyboard'
 export * from '@/hooks/responsive'
+export * from '@/hooks/theme'
 
 export * from '@/utilities/class'
 export * from '@/utilities/theme'
