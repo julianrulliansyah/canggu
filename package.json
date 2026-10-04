@@ -94,6 +94,7 @@
 			"import": "./dist/hooks/*/index.js"
 		},
 		"./styles.css": "./dist/styles.css",
+		"./themes/*": "./dist/themes/*",
 		"./utilities/*": {
 			"types": "./dist/utilities/*/index.d.ts",
 			"import": "./dist/utilities/*/index.js"
