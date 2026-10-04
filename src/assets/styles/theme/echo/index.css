@@ -6,6 +6,7 @@
         --canggu-color-sidebar-inset             : var(--canggu-color-card);
         --canggu-color-sidebar-inset-edge        : light-dark(transparent, oklch(from var(--canggu-color-edge) l c h / calc(alpha * 0.3)));
         --canggu-color-sidebar-rail              : transparent;
+        --canggu-color-sidebar-rail-edge         : light-dark(oklch(0.870 0.000   0.000 / 75%), oklch(0.274 0.006 286.033));
         --canggu-color-sidebar-item              : light-dark(var(--canggu-color-foreground), oklch(from var(--canggu-color-foreground) l c h / 85%));
         --canggu-color-sidebar-leaf              : light-dark(var(--canggu-color-foreground), oklch(from var(--canggu-color-foreground) l c h / 65%));
         --canggu-color-sidebar-leaf-icon         : currentColor;
@@ -22,17 +23,17 @@
         --canggu-typeface-heading : 'Satoshi', sans-serif;
         --canggu-typeface-feature : 'ss03' 1, 'ss04' 1;
 
-        --canggu-spacing-sidebar-seam           : 0.1875rem;
         --canggu-spacing-sidebar-offset         : 0.375rem;
-        --canggu-spacing-sidebar-frame-edge     : 0;
+        --canggu-spacing-sidebar-seam           : 0.1875rem;
         --canggu-spacing-sidebar-inset-edge     : 0.0625rem;
-        --canggu-spacing-sidebar-rail           : 1.0625rem;
+        --canggu-spacing-sidebar-rail           : 0.1875rem;
+        --canggu-spacing-sidebar-rail-shift     : 0;
+        --canggu-spacing-sidebar-rail-line      : calc(100% - 0.125rem);
+        --canggu-spacing-sidebar-frame-edge     : 0;
         --canggu-spacing-sidebar-item           : 2.3125rem;
         --canggu-spacing-sidebar-item-edge      : 0.0625rem;
         --canggu-spacing-sidebar-leaf           : 2.3125rem;
         --canggu-spacing-sidebar-space          : 0.625rem;
-        --canggu-spacing-sidebar-icon           : 1.1875rem;
-        --canggu-spacing-sidebar-glyph          : 1.125rem;
         --canggu-spacing-sidebar-branch         : 0.5625rem;
         --canggu-spacing-sidebar-branch-margin  : 0.05rem;
         --canggu-spacing-sidebar-branch-gap     : 0.125rem;
