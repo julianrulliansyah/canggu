@@ -31,24 +31,57 @@
         --canggu-color-sidebar-accent-foreground  : light-dark(oklch(0.210 0.005 285.885), oklch(0.985 0.000   0.000));
         --canggu-color-sidebar-edge               : light-dark(oklch(0.920 0.005 286.320), oklch(1.000 0.000   0.000 / 10%));
         --canggu-color-sidebar-halo               : light-dark(oklch(0.705 0.015 286.065), oklch(0.550 0.015 285.940));
+        --canggu-color-sidebar-canvas             : transparent;
+        --canggu-color-sidebar-inset              : var(--canggu-color-background);
+        --canggu-color-sidebar-inset-edge         : transparent;
+        --canggu-color-sidebar-rail               : var(--canggu-color-sidebar-edge);
+        --canggu-color-sidebar-item               : var(--canggu-color-sidebar-foreground);
+        --canggu-color-sidebar-leaf               : var(--canggu-color-sidebar-foreground);
+        --canggu-color-sidebar-leaf-icon          : var(--canggu-color-sidebar-accent-foreground);
+        --canggu-color-sidebar-hover              : var(--canggu-color-sidebar-accent);
+        --canggu-color-sidebar-hover-foreground   : var(--canggu-color-sidebar-accent-foreground);
+        --canggu-color-sidebar-active             : var(--canggu-color-sidebar-accent);
+        --canggu-color-sidebar-active-foreground  : var(--canggu-color-sidebar-accent-foreground);
+        --canggu-color-sidebar-branch             : var(--canggu-color-sidebar-edge);
 
-        --canggu-radius : 0.625rem;
+        --canggu-radius               : 0.625rem;
+        --canggu-radius-sidebar-inset : 0;
+        --canggu-radius-sidebar-item  : calc(var(--canggu-radius) * 0.8);
 
         --canggu-typeface-body    : 'Inter Variable', sans-serif;
         --canggu-typeface-heading : 'Geist Variable', sans-serif;
         --canggu-typeface-size    : 1rem;
+        --canggu-typeface-feature : normal;
 
-        --canggu-spacing-control-lg       : 2.375rem;
-        --canggu-spacing-control-md       : 2.25rem;
-        --canggu-spacing-control-sm       : 2rem;
-        --canggu-spacing-control-xs       : 1.75rem;
-        --canggu-spacing-check            : 1.125rem;
-        --canggu-spacing-thumb            : 0.875rem;
-        --canggu-spacing-switch-height-md : 1.275rem;
-        --canggu-spacing-switch-width-md  : 2.25rem;
-        --canggu-spacing-switch-height-sm : 1rem;
-        --canggu-spacing-switch-width-sm  : 1.75rem;
-        --canggu-spacing-textarea         : 5rem;
+        --canggu-spacing-control-lg             : 2.375rem;
+        --canggu-spacing-control-md             : 2.25rem;
+        --canggu-spacing-control-sm             : 2rem;
+        --canggu-spacing-control-xs             : 1.75rem;
+        --canggu-spacing-check                  : 1.125rem;
+        --canggu-spacing-thumb                  : 0.875rem;
+        --canggu-spacing-switch-height-md       : 1.275rem;
+        --canggu-spacing-switch-width-md        : 2.25rem;
+        --canggu-spacing-switch-height-sm       : 1rem;
+        --canggu-spacing-switch-width-sm        : 1.75rem;
+        --canggu-spacing-textarea               : 5rem;
+        --canggu-spacing-sidebar-seam           : 0;
+        --canggu-spacing-sidebar-offset         : 0;
+        --canggu-spacing-sidebar-frame-edge     : 0.0625rem;
+        --canggu-spacing-sidebar-inset-edge     : 0;
+        --canggu-spacing-sidebar-rail           : 1rem;
+        --canggu-spacing-sidebar-item           : 2rem;
+        --canggu-spacing-sidebar-item-edge      : 0;
+        --canggu-spacing-sidebar-leaf           : 1.75rem;
+        --canggu-spacing-sidebar-space          : 0.5rem;
+        --canggu-spacing-sidebar-icon           : 1rem;
+        --canggu-spacing-sidebar-glyph          : 1rem;
+        --canggu-spacing-sidebar-branch         : 0;
+        --canggu-spacing-sidebar-branch-margin  : 0;
+        --canggu-spacing-sidebar-branch-gap     : 0.25rem;
+        --canggu-spacing-sidebar-branch-padding : 0.125rem;
+
+        --canggu-shadow-sidebar-inset  : 0 0 #0000;
+        --canggu-shadow-sidebar-active : 0 0 #0000;
 
         @media (width >= 48rem) {
             --canggu-spacing-control-lg       : 2.125rem;
