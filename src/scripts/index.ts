@@ -6,9 +6,9 @@ import { dirname, join }                                                        
 import { createInterface }                                                           from 'node:readline/promises'
 import { fileURLToPath }                                                             from 'node:url'
 
-const kind     : Script.CommandKind[] = [ 'components', 'composites', 'hooks', 'utilities' ]
-const root     : Script.Command       = stamp(join(dirname(fileURLToPath(import.meta.url)), '..', '..'))
-const fallback : Script.CommandConfig = { alias : { components : '@/canggu/components', composites : '@/canggu/composites', hooks : '@/canggu/hooks', utilities : '@/canggu/utilities' }, directory : { components : 'src/canggu/components', composites : 'src/canggu/composites', hooks : 'src/canggu/hooks', style : 'src/canggu/styles', utilities : 'src/canggu/utilities' } }
+const command        : Script.Command                 = stamp(join(dirname(fileURLToPath(import.meta.url)), '..', '..'))
+const classification : Script.CommandClassification[] = [ 'components', 'composites', 'hooks', 'utilities' ]
+const fallback       : Script.CommandConfig           = { alias : { components : '@/canggu/components', composites : '@/canggu/composites', hooks : '@/canggu/hooks', utilities : '@/canggu/utilities' }, directory : { components : 'src/canggu/components', composites : 'src/canggu/composites', hooks : 'src/canggu/hooks', style : 'src/canggu/styles', utilities : 'src/canggu/utilities' } }
 
 function stamp(path: string): Script.Command {
 	return path as Script.Command
@@ -42,22 +42,22 @@ function loader(text: string): Script.CommandLoader {
 	}
 }
 
-function component(kind: Script.CommandModule['kind']): string[] {
-	const walk = (base: string): string[] => readdirSync(join(root, 'src', kind, base)).filter((each: string): boolean => !(each === 'types' || each === 'utilities') && statSync(join(root, 'src', kind, base, each)).isDirectory()).flatMap((each: string): string[] => [ ...(existsSync(join(root, 'src', kind, base, each, 'index.tsx')) || existsSync(join(root, 'src', kind, base, each, 'index.ts')) ? [ join(base, each) ] : []), ...walk(join(base, each)) ])
+function component(classification: Script.CommandModule['classification']): string[] {
+	const traverse = (base: string): string[] => readdirSync(join(command, 'src', classification, base)).filter((each: string): boolean => !(each === 'types' || each === 'utilities') && statSync(join(command, 'src', classification, base, each)).isDirectory()).flatMap((each: string): string[] => [ ...(existsSync(join(command, 'src', classification, base, each, 'index.tsx')) || existsSync(join(command, 'src', classification, base, each, 'index.ts')) ? [ join(base, each) ] : []), ...traverse(join(base, each)) ])
 
-	return walk('').sort()
+	return traverse('').sort()
 }
 
 function locate(name: string): Script.CommandModule | null {
-	const match = kind.find((each: Script.CommandKind): boolean => component(each).includes(name))
+	const match = classification.find((each: Script.CommandClassification): boolean => component(each).includes(name))
 
-	return match === undefined ? null : { kind : match, name : name }
+	return match === undefined ? null : { classification : match, name : name }
 }
 
 function tree(module: Script.CommandModule): string[] {
-	const walk = (base: string, deep: boolean): string[] => readdirSync(join(root, 'src', module.kind, module.name, base)).flatMap((each: string): string[] => statSync(join(root, 'src', module.kind, module.name, base, each)).isDirectory() ? (deep || each === 'types' || each === 'utilities' ? walk(join(base, each), true) : []) : [ join(base, each) ])
+	const traverse = (base: string, deep: boolean): string[] => readdirSync(join(command, 'src', module.classification, module.name, base)).flatMap((each: string): string[] => statSync(join(command, 'src', module.classification, module.name, base, each)).isDirectory() ? (deep || each === 'types' || each === 'utilities' ? traverse(join(base, each), true) : []) : [ join(base, each) ])
 
-	return walk('', false)
+	return traverse('', false)
 }
 
 function gather(selection: string[]): Script.CommandGather {
@@ -65,23 +65,23 @@ function gather(selection: string[]): Script.CommandGather {
 	const requirement = new Set<string>()
 
 	const traverse = (name: string): void => {
-		const match  = kind.find((each: Script.CommandKind): boolean => name.startsWith(each + '/'))
-		const module = match === undefined ? locate(name) : { kind : match, name : name.slice(match.length + 1) }
+		const match  = classification.find((each: Script.CommandClassification): boolean => name.startsWith(each + '/'))
+		const module = match === undefined ? locate(name) : { classification : match, name : name.slice(match.length + 1) }
 
 		if (module === null)
 			throw new Error('Unknown module' + ':' + ' ' + name)
 
-		if (record.has(module.kind + '/' + module.name))
+		if (record.has(module.classification + '/' + module.name))
 			return
 
-		record.set(module.kind + '/' + module.name, module)
+		record.set(module.classification + '/' + module.name, module)
 
 		for (const file of tree(module))
-			for (const [ , specify ] of readFileSync(join(root, 'src', module.kind, module.name, file), 'utf8').matchAll(/from '([^']+)'/g)) {
+			for (const [ , specify ] of readFileSync(join(command, 'src', module.classification, module.name, file), 'utf8').matchAll(/from '([^']+)'/g)) {
 				if (specify === undefined)
 					continue
 
-				if (kind.some((each: Script.CommandKind): boolean => specify.startsWith('@/' + each + '/')))
+				if (classification.some((each: Script.CommandClassification): boolean => specify.startsWith('@/' + each + '/')))
 					traverse(specify.slice(2).replace(/\/(types|utilities)$/, ''))
 				else if (!specify.startsWith('@/') && !specify.startsWith('.') && !specify.startsWith('node:') && !specify.startsWith('react'))
 					requirement.add(specify.startsWith('@') ? specify.split('/').slice(0, 2).join('/') : specify.split('/')[0] ?? specify)
@@ -96,7 +96,7 @@ function gather(selection: string[]): Script.CommandGather {
 
 async function acquire(entry: string[]): Promise<void> {
 	const project = manifest(join(process.cwd(), 'package.json'))
-	const source  = manifest(join(root, 'package.json'))
+	const source  = manifest(join(command, 'package.json'))
 	const absent  = entry.filter((each: string): boolean => project.dependencies?.[each] === undefined && project.devDependencies?.[each] === undefined)
 
 	if (absent.length === 0)
@@ -156,9 +156,9 @@ async function add(selection: string[], force: boolean): Promise<void> {
 	const spinner : Script.CommandLoader = loader('Copying' + ' ' + selection.join(', '))
 	const result  : Script.CommandGather = gather(selection)
 	const report  : string[]             = result.module.flatMap((module: Script.CommandModule): string[] => tree(module).map((file: string): string => {
-		const target: string = join(choice.directory[module.kind], module.name, file)
+		const target: string = join(choice.directory[module.classification], module.name, file)
 
-		return (write(target, kind.reduce((text: string, each: Script.CommandKind): string => text.replaceAll('\'@/' + each + '/', '\'' + choice.alias[each] + '/'), readFileSync(join(root, 'src', module.kind, module.name, file), 'utf8')), force) ? 'Wrote' : 'Kept') + ' ' + target
+		return (write(target, classification.reduce((text: string, each: Script.CommandClassification): string => text.replaceAll('\'@/' + each + '/', '\'' + choice.alias[each] + '/'), readFileSync(join(command, 'src', module.classification, module.name, file), 'utf8')), force) ? 'Wrote' : 'Kept') + ' ' + target
 	}))
 
 	spinner.stop('Copied' + ' ' + String(result.module.length) + ' ' + 'modules' + ',' + ' ' + String(report.length) + ' ' + 'files')
@@ -177,24 +177,30 @@ function list(): void {
 }
 
 async function install(quiet: boolean): Promise<void> {
-	const line = quiet ? null : createInterface({ input : process.stdin, output : process.stdout })
-	const ask  = async (question: string, value: string): Promise<string> => line === null ? value : (await line.question(question + ' ' + '(' + value + ')' + ' ')).trim() || value
+	const line   = quiet ? null : createInterface({ input : process.stdin, output : process.stdout })
+	const prompt = async (question: string, value: string): Promise<string> => line === null ? value : (await line.question(question + ' ' + '(' + value + ')' + ' ')).trim() || value
 
-	const choice: Script.CommandConfig = { alias : { components : await ask('Alias of components', fallback.alias.components), composites : await ask('Alias of composites', fallback.alias.composites), hooks : await ask('Alias of hooks', fallback.alias.hooks), utilities : await ask('Alias of utilities', fallback.alias.utilities) }, directory : { components : await ask('Directory of components', fallback.directory.components), composites : await ask('Directory of composites', fallback.directory.composites), hooks : await ask('Directory of hooks', fallback.directory.hooks), style : await ask('Directory of the stylesheet', fallback.directory.style), utilities : await ask('Directory of utilities', fallback.directory.utilities) } }
+	const choice: Script.CommandConfig = { alias : { components : await prompt('Alias of components', fallback.alias.components), composites : await prompt('Alias of composites', fallback.alias.composites), hooks : await prompt('Alias of hooks', fallback.alias.hooks), utilities : await prompt('Alias of utilities', fallback.alias.utilities) }, directory : { components : await prompt('Directory of components', fallback.directory.components), composites : await prompt('Directory of composites', fallback.directory.composites), hooks : await prompt('Directory of hooks', fallback.directory.hooks), style : await prompt('Directory of the stylesheet', fallback.directory.style), utilities : await prompt('Directory of utilities', fallback.directory.utilities) } }
 
 	line?.close()
 	writeFileSync('canggu.json', JSON.stringify(choice, null, '\t') + '\n')
 
 	const spinner: Script.CommandLoader = loader('Copying the stylesheet')
+	
+	const theme      = readdirSync(join(command, 'src', 'assets', 'styles', 'theme'))
+	const stylesheet = readFileSync(join(command, 'src', 'assets', 'styles', 'index.css'), 'utf8')
 
-	for (const file of [ 'index.css', join('libraries', 'keyframe.min.css'), join('libraries', 'utility.min.css'), join('libraries', 'variant.min.css'), join('theme', 'berawa', 'index.css') ])
-		write(join(choice.directory.style, file), readFileSync(join(root, 'src', 'assets', 'styles', file), 'utf8').replace(/^@import '#\/assets\/styles\/font\/index\.css';\n\n/m, '').replaceAll('#/assets/styles/', './'), false)
+	for (const file of [ 'index.css', join('libraries', 'keyframe.min.css'), join('libraries', 'utility.min.css'), join('libraries', 'variant.min.css'), ...theme.map((name: string): string => join('theme', name, 'index.css')) ])
+		write(join(choice.directory.style, file), readFileSync(join(command, 'src', 'assets', 'styles', file), 'utf8').replace(/^@import '#\/assets\/styles\/font\/index\.css';\n\n/m, '').replaceAll('#/assets/styles/', './'), false)
 
 	spinner.stop('Copied the stylesheet beneath' + ' ' + choice.directory.style)
 
 	await acquire([ '@base-ui/react', 'class-variance-authority', 'cn', 'lucide-react', 'tw-animate-css' ])
 
 	console.log('Import' + ' ' + join(choice.directory.style, 'index.css') + ' ' + 'from the stylesheet of the application, and map the alias' + ' ' + '@/*' + ' ' + 'within tsconfig.json')
+
+	for (const name of theme.filter((each: string): boolean => !stylesheet.includes('theme' + '/' + each + '/')))
+		console.log('Import' + ' ' + join(choice.directory.style, 'theme', name, 'index.css') + ' ' + 'after' + ' ' + join(choice.directory.style, 'index.css') + ' ' + 'and set' + ' ' + 'data-theme=' + name + ' ' + 'to apply the theme' + ' ' + name)
 }
 
 function usage(): void {
