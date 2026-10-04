@@ -1,0 +1,44 @@
+@layer theme {
+    :where([data-theme=echo]) {
+        --canggu-color-sidebar                   : light-dark(oklch(0.985 0.000   0.000), var(--canggu-color-background));
+        --canggu-color-sidebar-halo              : light-dark(oklch(0.922 0.000   0.000 / 50%), oklch(0.274 0.006 286.033));
+        --canggu-color-sidebar-canvas            : var(--canggu-color-sidebar);
+        --canggu-color-sidebar-inset             : var(--canggu-color-card);
+        --canggu-color-sidebar-inset-edge        : light-dark(transparent, oklch(from var(--canggu-color-edge) l c h / calc(alpha * 0.3)));
+        --canggu-color-sidebar-rail              : transparent;
+        --canggu-color-sidebar-item              : light-dark(var(--canggu-color-foreground), oklch(from var(--canggu-color-foreground) l c h / 85%));
+        --canggu-color-sidebar-leaf              : light-dark(var(--canggu-color-foreground), oklch(from var(--canggu-color-foreground) l c h / 65%));
+        --canggu-color-sidebar-leaf-icon         : currentColor;
+        --canggu-color-sidebar-hover             : transparent;
+        --canggu-color-sidebar-hover-foreground  : var(--canggu-color-sidebar-item);
+        --canggu-color-sidebar-active            : light-dark(transparent, oklch(0.705 0.015 286.067 / 10%));
+        --canggu-color-sidebar-active-foreground : var(--canggu-color-sidebar-item);
+        --canggu-color-sidebar-branch            : light-dark(oklch(0.870 0.000   0.000), oklch(0.274 0.006 286.033 / 75%));
+
+        --canggu-radius-sidebar-inset : calc(var(--canggu-radius) * 2.2);
+        --canggu-radius-sidebar-item  : var(--canggu-radius);
+
+        --canggu-typeface-body    : 'Satoshi', sans-serif;
+        --canggu-typeface-heading : 'Satoshi', sans-serif;
+        --canggu-typeface-feature : 'ss03' 1, 'ss04' 1;
+
+        --canggu-spacing-sidebar-seam           : 0.1875rem;
+        --canggu-spacing-sidebar-offset         : 0.375rem;
+        --canggu-spacing-sidebar-frame-edge     : 0;
+        --canggu-spacing-sidebar-inset-edge     : 0.0625rem;
+        --canggu-spacing-sidebar-rail           : 1.0625rem;
+        --canggu-spacing-sidebar-item           : 2.3125rem;
+        --canggu-spacing-sidebar-item-edge      : 0.0625rem;
+        --canggu-spacing-sidebar-leaf           : 2.3125rem;
+        --canggu-spacing-sidebar-space          : 0.625rem;
+        --canggu-spacing-sidebar-icon           : 1.1875rem;
+        --canggu-spacing-sidebar-glyph          : 1.125rem;
+        --canggu-spacing-sidebar-branch         : 0.5625rem;
+        --canggu-spacing-sidebar-branch-margin  : 0.05rem;
+        --canggu-spacing-sidebar-branch-gap     : 0.125rem;
+        --canggu-spacing-sidebar-branch-padding : 0.25rem;
+
+        --canggu-shadow-sidebar-inset  : 0 0.25rem 0.375rem -0.0625rem oklch(0 0 0 / 5%), 0 0.125rem 0.25rem -0.125rem oklch(0 0 0 / 5%);
+        --canggu-shadow-sidebar-active : 0 0 0 0.0625rem light-dark(oklch(1 0 0), oklch(0.275 0.006 286.035 / 85%)), 0 0.25rem 0.375rem -0.0625rem light-dark(oklch(0 0 0 / 10%), oklch(0 0 0 / 55%)), 0 0.125rem 0.25rem -0.125rem light-dark(oklch(0 0 0 / 10%), oklch(0 0 0 / 55%));
+    }
+}
