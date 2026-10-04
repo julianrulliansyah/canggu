@@ -102,8 +102,6 @@
     --spacing-sidebar-seam           : var(--canggu-spacing-sidebar-seam);
     --spacing-sidebar-inset-edge     : var(--canggu-spacing-sidebar-inset-edge);
     --spacing-sidebar-rail           : var(--canggu-spacing-sidebar-rail);
-    --spacing-sidebar-rail-shift     : var(--canggu-spacing-sidebar-rail-shift);
-    --spacing-sidebar-rail-line      : var(--canggu-spacing-sidebar-rail-line);
     --spacing-sidebar-frame-edge     : var(--canggu-spacing-sidebar-frame-edge);
     --spacing-sidebar-item           : var(--canggu-spacing-sidebar-item);
     --spacing-sidebar-item-edge      : var(--canggu-spacing-sidebar-item-edge);
@@ -116,6 +114,108 @@
 
     --shadow-sidebar-inset  : var(--canggu-shadow-sidebar-inset);
     --shadow-sidebar-active : var(--canggu-shadow-sidebar-active);
+}
+
+@property --canggu-radius-sidebar-inset {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-radius-sidebar-item {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-offset {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-seam {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-inset-edge {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-rail {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-frame-edge {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-item {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-item-edge {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-leaf {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-space {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-branch {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-branch-margin {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-branch-gap {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-spacing-sidebar-branch-padding {
+    syntax        : '<length>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-position-sidebar-rail-shift {
+    syntax        : '<length-percentage>';
+    inherits      : true;
+    initial-value : 0;
+}
+
+@property --canggu-position-sidebar-rail-line {
+    syntax        : '<length-percentage>';
+    inherits      : true;
+    initial-value : 0;
 }
 
 @layer base {
