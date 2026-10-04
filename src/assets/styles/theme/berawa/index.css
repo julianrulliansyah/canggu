@@ -69,8 +69,6 @@
         --canggu-spacing-sidebar-seam           : 0;
         --canggu-spacing-sidebar-inset-edge     : 0;
         --canggu-spacing-sidebar-rail           : 1rem;
-        --canggu-spacing-sidebar-rail-shift     : -50%;
-        --canggu-spacing-sidebar-rail-line      : 50%;
         --canggu-spacing-sidebar-frame-edge     : 0.0625rem;
         --canggu-spacing-sidebar-item           : 2rem;
         --canggu-spacing-sidebar-item-edge      : 0;
@@ -80,6 +78,9 @@
         --canggu-spacing-sidebar-branch-margin  : 0;
         --canggu-spacing-sidebar-branch-gap     : 0.25rem;
         --canggu-spacing-sidebar-branch-padding : 0.125rem;
+
+        --canggu-position-sidebar-rail-shift : -50%;
+        --canggu-position-sidebar-rail-line  : 50%;
 
         --canggu-shadow-sidebar-inset  : 0 0 oklch(0 0 0 / 0%);
         --canggu-shadow-sidebar-active : 0 0 oklch(0 0 0 / 0%);
