@@ -61,6 +61,18 @@
     --color-sidebar-accent-foreground  : var(--canggu-color-sidebar-accent-foreground);
     --color-sidebar-edge               : var(--canggu-color-sidebar-edge);
     --color-sidebar-halo               : var(--canggu-color-sidebar-halo);
+    --color-sidebar-canvas             : var(--canggu-color-sidebar-canvas);
+    --color-sidebar-inset              : var(--canggu-color-sidebar-inset);
+    --color-sidebar-inset-edge         : var(--canggu-color-sidebar-inset-edge);
+    --color-sidebar-rail               : var(--canggu-color-sidebar-rail);
+    --color-sidebar-item               : var(--canggu-color-sidebar-item);
+    --color-sidebar-leaf               : var(--canggu-color-sidebar-leaf);
+    --color-sidebar-leaf-icon          : var(--canggu-color-sidebar-leaf-icon);
+    --color-sidebar-hover              : var(--canggu-color-sidebar-hover);
+    --color-sidebar-hover-foreground   : var(--canggu-color-sidebar-hover-foreground);
+    --color-sidebar-active             : var(--canggu-color-sidebar-active);
+    --color-sidebar-active-foreground  : var(--canggu-color-sidebar-active-foreground);
+    --color-sidebar-branch             : var(--canggu-color-sidebar-branch);
 
     --radius-xs  : calc(var(--canggu-radius) * 0.4);
     --radius-sm  : calc(var(--canggu-radius) * 0.6);
@@ -71,17 +83,38 @@
     --radius-3xl : calc(var(--canggu-radius) * 2.2);
     --radius-4xl : calc(var(--canggu-radius) * 2.6);
 
-    --spacing-control-lg       : var(--canggu-spacing-control-lg);
-    --spacing-control-md       : var(--canggu-spacing-control-md);
-    --spacing-control-sm       : var(--canggu-spacing-control-sm);
-    --spacing-control-xs       : var(--canggu-spacing-control-xs);
-    --spacing-check            : var(--canggu-spacing-check);
-    --spacing-thumb            : var(--canggu-spacing-thumb);
-    --spacing-switch-height-md : var(--canggu-spacing-switch-height-md);
-    --spacing-switch-width-md  : var(--canggu-spacing-switch-width-md);
-    --spacing-switch-height-sm : var(--canggu-spacing-switch-height-sm);
-    --spacing-switch-width-sm  : var(--canggu-spacing-switch-width-sm);
-    --spacing-textarea         : var(--canggu-spacing-textarea);
+    --radius-sidebar-inset : var(--canggu-radius-sidebar-inset);
+    --radius-sidebar-item  : var(--canggu-radius-sidebar-item);
+
+    --spacing-control-lg             : var(--canggu-spacing-control-lg);
+    --spacing-control-md             : var(--canggu-spacing-control-md);
+    --spacing-control-sm             : var(--canggu-spacing-control-sm);
+    --spacing-control-xs             : var(--canggu-spacing-control-xs);
+    --spacing-check                  : var(--canggu-spacing-check);
+    --spacing-thumb                  : var(--canggu-spacing-thumb);
+    --spacing-switch-height-md       : var(--canggu-spacing-switch-height-md);
+    --spacing-switch-width-md        : var(--canggu-spacing-switch-width-md);
+    --spacing-switch-height-sm       : var(--canggu-spacing-switch-height-sm);
+    --spacing-switch-width-sm        : var(--canggu-spacing-switch-width-sm);
+    --spacing-textarea               : var(--canggu-spacing-textarea);
+    --spacing-sidebar-seam           : var(--canggu-spacing-sidebar-seam);
+    --spacing-sidebar-offset         : var(--canggu-spacing-sidebar-offset);
+    --spacing-sidebar-frame-edge     : var(--canggu-spacing-sidebar-frame-edge);
+    --spacing-sidebar-inset-edge     : var(--canggu-spacing-sidebar-inset-edge);
+    --spacing-sidebar-rail           : var(--canggu-spacing-sidebar-rail);
+    --spacing-sidebar-item           : var(--canggu-spacing-sidebar-item);
+    --spacing-sidebar-item-edge      : var(--canggu-spacing-sidebar-item-edge);
+    --spacing-sidebar-leaf           : var(--canggu-spacing-sidebar-leaf);
+    --spacing-sidebar-space          : var(--canggu-spacing-sidebar-space);
+    --spacing-sidebar-icon           : var(--canggu-spacing-sidebar-icon);
+    --spacing-sidebar-glyph          : var(--canggu-spacing-sidebar-glyph);
+    --spacing-sidebar-branch         : var(--canggu-spacing-sidebar-branch);
+    --spacing-sidebar-branch-margin  : var(--canggu-spacing-sidebar-branch-margin);
+    --spacing-sidebar-branch-gap     : var(--canggu-spacing-sidebar-branch-gap);
+    --spacing-sidebar-branch-padding : var(--canggu-spacing-sidebar-branch-padding);
+
+    --shadow-sidebar-inset  : var(--canggu-shadow-sidebar-inset);
+    --shadow-sidebar-active : var(--canggu-shadow-sidebar-active);
 }
 
 @layer base {
@@ -103,5 +136,7 @@
 	
 	html {
 		@apply font-sans;
+
+		font-feature-settings : var(--canggu-typeface-feature);
     }
 }
