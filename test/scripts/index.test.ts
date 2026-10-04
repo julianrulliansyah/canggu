@@ -30,7 +30,7 @@ describe('add()', (): void => {
 		expect([ 'kit/composites/step/index.tsx', 'kit/composites/step/types/index.ts', 'kit/composites/step/utilities/index.ts', 'kit/components/button/index.tsx' ].every((path: string): boolean => existsSync(join(directory, path)))).toBe(true)
 	})
 
-	test('exits with failure when the name requested matches no module of any kind', (): void => {
+	test('exits with failure when the name requested matches no module of any classification', (): void => {
 		expect(run(stage({}), [ 'add', 'nothing' ]).exitCode).toBe(1)
 	})
 
@@ -72,7 +72,7 @@ describe('add()', (): void => {
 })
 
 describe('list()', (): void => {
-	test('names every module of every kind upon one line for each kind', (): void => {
+	test('names every module of every classification upon one line for each classification', (): void => {
 		expect(run(stage(undefined), [ 'list' ]).stdout.toString().split('\n').filter((line: string): boolean => line.length > 0).map((line: string): string => line.slice(0, line.indexOf(':')))).toEqual([ 'Components', 'Composites', 'Hooks', 'Utilities' ])
 		expect(run(stage(undefined), [ 'list' ]).stdout.toString()).toContain('Composites: command, message/scroll, sidebar, step')
 	})
