@@ -60,3 +60,4 @@ export * from '@/hooks/keyboard'
 export * from '@/hooks/responsive'
 
 export * from '@/utilities/class'
+export * from '@/utilities/theme'
